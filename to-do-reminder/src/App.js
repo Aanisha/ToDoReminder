@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Todo from './pages/Todo';
+import Main from './pages/Main';
 import './App.css';
 
 const App = () => {
   return (
     <div className="App">
-      <Todo />
+      <Main />
     </div>
   );
 }

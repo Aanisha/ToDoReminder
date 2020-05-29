@@ -41,11 +41,15 @@ class Todo extends Component {
     let { todos } = this.state;
 
     return(
-      <div>
+      <div className="todo-container">
+        <div className="todo-wrapper">
         <h1>ToDo Reminder(s)</h1>
-        <Input getTodos={this.getTodos}/>
+        <div className="todo-input">
+          <Input getTodos={this.getTodos}/>
+        </div>
         <ListTodo todos={todos} deleteTodo={this.deleteTodo}/>
       </div>
+    </div>
     )
   }
 }

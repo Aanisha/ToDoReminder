@@ -3,6 +3,7 @@ import React from 'react';
 const ListTodo = ({ todos, deleteTodo }) => {
 
   return (
+    <div className="todo-list">
     <ul>
       {
         todos &&
@@ -11,7 +12,6 @@ const ListTodo = ({ todos, deleteTodo }) => {
               todos.map(todo => {
                 return (
                   <li key={todo._id} >{todo.action} <button id="delete" onClick={() => deleteTodo(todo._id)}>Delete</button></li>
-
                 )
               })
             )
@@ -21,6 +21,7 @@ const ListTodo = ({ todos, deleteTodo }) => {
             )
       }
     </ul>
+    </div>
   )
 }
 
