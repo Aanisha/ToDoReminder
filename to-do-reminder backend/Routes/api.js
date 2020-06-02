@@ -84,7 +84,7 @@ router.get('/todos/:user', (req, res, next) => {
     .catch(next)
 });
 
-router.post('/todos:user', (req, res, next) => {
+router.post('/todos/:user', (req, res, next) => {
   if (req.body.action && req.body.date && req.body.label)
   {
   var data={
