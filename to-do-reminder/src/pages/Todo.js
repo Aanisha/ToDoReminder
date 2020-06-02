@@ -43,11 +43,9 @@ class Todo extends Component {
     return(
       <div className="todo-container">
         <div className="todo-wrapper">
-        <h1>ToDo Reminder(s)</h1>
-        <div className="todo-input">
+          <h1>TODO Reminders</h1>
           <Input getTodos={this.getTodos}/>
-        </div>
-        <ListTodo todos={todos} deleteTodo={this.deleteTodo}/>
+          <ListTodo todos={todos} deleteTodo={this.deleteTodo}/>
       </div>
     </div>
     )

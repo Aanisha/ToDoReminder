@@ -18,7 +18,7 @@ class Input extends Component {
         .then(res => {
           if(res.data)
           {
-              console.log(res.data);
+          	console.log(res.data);
             this.props.getTodos();
             this.setState({action: ""})
           }
@@ -31,17 +31,6 @@ class Input extends Component {
     }
   }
 
-  testit = () => {
-    //sample test api to test backend
-      axios.get('/api/testapi')
-        .then(res => {
-          if(res.data)
-          {
-          	window.alert(res.data);
-          }
-        })
-  }
-
   handleChange = (e) => {
     this.setState({
       action: e.target.value
@@ -51,12 +40,10 @@ class Input extends Component {
   render() {
     let { action } = this.state;
     return (
-      <div>
-        <input type="text" onChange={this.handleChange} value={action} />
-        
-        <button onClick={this.addTodo}>add todo</button>
+      <div className="todo-input">
+        <input type="text" autofocus onChange={this.handleChange} value={action} />
 
-        <button onClick={this.testit}>TEST API</button> {/* FOr Testing*/}
+        <button onClick={this.addTodo}>+</button>
       </div>
     )
   }
