@@ -40,10 +40,10 @@ class Input extends Component {
   render() {
     let { action } = this.state;
     return (
-      <div>
-        <input type="text" onChange={this.handleChange} value={action} />
-        
-        <button onClick={this.addTodo}>add todo</button>
+      <div className="todo-input">
+        <input type="text" autofocus onChange={this.handleChange} value={action} />
+
+        <button onClick={this.addTodo}>+</button>
       </div>
     )
   }
