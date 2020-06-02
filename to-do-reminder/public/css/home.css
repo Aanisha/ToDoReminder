@@ -1,11 +1,5 @@
-body {
-    color:#000;
-      font-family: 'Montserrat', sans-serif;
-    background-image: linear-gradient(102.7deg, #fddaff 8.2%, #dfadfc 19.6%, #adcdfc 36.8%, #adfcf4 73.2%, #caf8d0 90.9%);
-  }
-  
-  .wrapper{
-    height: 250px;
+.wrapper{
+    height: 100%;
     width: auto;
     font:12px Arial, Helvetica, sans-serif;
     font-family: 'Montserrat', sans-serif;
@@ -13,15 +7,13 @@ body {
     -moz-font-smoothing:antialiased;
     font-smoothing:antialiased;
     -webkit-text-size-adjust:100%;
-    margin: 2% auto;
   }
   
   .welcome{
     align-items: center;
     padding: 2em;
   }
-  
-  .welcome h1,h3 {
+  .welcome h1 {
     font:12px Arial, Helvetica, sans-serif;
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
@@ -50,6 +42,7 @@ body {
       height: 100%;
       -webkit-perspective: 600px;
       -moz-perspective: 600px;
+      box-shadow: inset -2px -2px 10px rgba(255,255,255,0.2);
   }
   
   .leftside:hover, .rightside:hover{
@@ -60,7 +53,7 @@ body {
     -webkit-perspective: 600px;
     -moz-perspective: 600px;
     background: rgba(255,255,255,0.2);
-    box-shadow: 1px 1px 1px rgba(0,0,0,0.02), inset -2px -2px 10px rgba(255,255,255,0.2);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2), inset -2px -2px 20px rgba(255,255,255,0.2);
     cursor: pointer;
   }
   
