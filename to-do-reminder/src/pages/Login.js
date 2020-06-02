@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import lstyles from '../localstyles/login.module.css'
 
 class Login extends Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class Login extends Component {
 
     render() {
         return (
-            <section className="hero is-fullheight">
+            <section className={`hero is-fullheight ${lstyles.wavebg}`}>
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <div className="column is-4 is-offset-4">
@@ -48,7 +48,7 @@ class Login extends Component {
                                     <button className="button is-block is-info is-normal is-fullwidth">Login <i className="fa fa-sign-in" aria-hidden="true"></i></button>
                                 </form>
                             </div>
-                            <p className="has-text-grey">
+                            <p className="has-text-white">
                                 <a href="/signup">Sign Up</a> &nbsp;-&nbsp;&nbsp;
                                 <a href="../">Forgot Password</a>
                             </p>

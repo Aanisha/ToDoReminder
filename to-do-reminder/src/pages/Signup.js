@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import lstyles from '../localstyles/login.module.css'
 import axios from "axios";
 
 
@@ -13,7 +14,7 @@ class Signup extends Component {
 
     render() {
         return (
-            <section className="hero is-fullheight">
+            <section className={`hero is-fullheight ${lstyles.wavebg}`}>
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <div className="column is-4 is-offset-4">
@@ -60,8 +61,8 @@ class Signup extends Component {
                                     <button className="button is-block is-info is-normal is-fullwidth"> Create Account <i className="fa fa-sign-in" aria-hidden="true"></i></button>
                                 </form>
                             </div>
-                            <p className="has-text-grey">
-                                <a href="/login">Log in</a> &nbsp;-&nbsp;&nbsp;
+                            <p className="has-text-white">
+                                <a href="/login">Log In</a> &nbsp;-&nbsp;&nbsp;
                                 <a href="../">Forgot Password</a>
                             </p>
                         </div>
