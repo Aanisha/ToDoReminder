@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 
-class Login extends Component {
+class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,13 +19,19 @@ class Login extends Component {
                         <div className="column is-4 is-offset-4">
                             <div className="box">
                                 
-                                <h3 className="title">Login</h3>
+                                <h3 className="title">Sign Up</h3>
                                 <figure className="avatar">
                                     <img width ='64' src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.freepnglogos.com%2Fuploads%2Ftelegram-logo-15.png&f=1&nofb=1" />
                                 </figure>
                                 <br/>
                                 <form>
                                     
+
+                                    <div className="field">
+                                        <div className="control">
+                                            <input className="input is-normal" type="text" placeholder="Username" autoFocus=""/>
+                                        </div>
+                                    </div>
                                     
                                     <div className="field">
                                         <div className="control">
@@ -40,16 +46,22 @@ class Login extends Component {
                                     </div>
 
                                     <div className="field">
+                                        <div className="control">
+                                            <input className="input is-normal" type="password" placeholder="Confirm Password"/>
+                                        </div>
+                                    </div>
+
+                                    <div className="field">
                                         <label className="checkbox">
                                         <input type="checkbox"/>
                                         &nbsp;Remember me
                                         </label>
                                     </div>
-                                    <button className="button is-block is-info is-normal is-fullwidth">Login <i className="fa fa-sign-in" aria-hidden="true"></i></button>
+                                    <button className="button is-block is-info is-normal is-fullwidth"> Create Account <i className="fa fa-sign-in" aria-hidden="true"></i></button>
                                 </form>
                             </div>
                             <p className="has-text-grey">
-                                <a href="/signup">Sign Up</a> &nbsp;-&nbsp;&nbsp;
+                                <a href="/login">Log in</a> &nbsp;-&nbsp;&nbsp;
                                 <a href="../">Forgot Password</a>
                             </p>
                         </div>
@@ -60,4 +72,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Signup;
