@@ -18,7 +18,7 @@ class Input extends Component {
         .then(res => {
           if(res.data)
           {
-          	console.log(res.data);
+            console.log(res.data);
             this.props.getTodos();
             this.setState({action: ""})
           }
@@ -29,6 +29,17 @@ class Input extends Component {
      {
       console.log('input field required')
     }
+  }
+
+  testit = () => {
+    //sample test api to test backend
+      axios.get('/api/testapi')
+        .then(res => {
+          if(res.data)
+          {
+          	window.alert(res.data);
+          }
+        })
   }
 
   handleChange = (e) => {
@@ -44,6 +55,8 @@ class Input extends Component {
         <input type="text" onChange={this.handleChange} value={action} />
         
         <button onClick={this.addTodo}>add todo</button>
+
+        <button onClick={this.testit}>TEST API</button> {/* FOr Testing*/}
       </div>
     )
   }

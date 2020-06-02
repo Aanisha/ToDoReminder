@@ -1,7 +1,7 @@
 const express = require ('express');
 const router = express.Router();
-const Todo = require('../models/todo');
-const Login = require('../models/login');
+const Todo = require('../Models/todo');
+const Login = require('../Models/login');
 
 router.get('/login', (req, res, next) => {
 
@@ -9,13 +9,12 @@ router.get('/login', (req, res, next) => {
   var userName=req.body.userName;
   var password=req.body.password;
 
-  Login.findOne({userName:userName,password:password},function(err,user){
+  Login.findOne({userName:userName, password:password},function(err,user){
 
     if(err)
     {
       return res.status(500).send();
-
-  }
+    }
   if(!user)
   {
       res.json({
@@ -85,11 +84,10 @@ router.get('/todos/:user', (req, res, next) => {
     .catch(next)
 });
 
-router.post('/todos/:user', (req, res, next) => {
-  if(req.body.action && req.body.date && req.body.label)
+router.post('/todos', (req, res, next) => {
+  if (req.body.action && req.body.date && req.body.label)
   {
   var data={
-
       userName:req.params.user,
       action:req.body.action,
       date:req.body.date,
@@ -112,5 +110,12 @@ router.delete('/todos/:id', (req, res, next) => {
     .then(data => res.json(data))
     .catch(next)
 });
+
+
+router.get('/testapi', (req, res, next) => {
+  //sample api for testing
+  res.send("working")
+});
+
 
 module.exports = router;
