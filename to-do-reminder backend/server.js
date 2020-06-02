@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const routes = require('./routes/api');
+const routes = require('./Routes/api');
 const path = require('path');
 require('dotenv').config();
 
@@ -10,10 +10,12 @@ const app = express();
 const port =  process.env.PORT ||5000;
 
 //connect to the database
-mongoose.connect("mongodb+srv://Aanisha:HelloWorld@cluster0-clksj.azure.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true })
+mongoose.connect("mongodb+srv://AzizStark:148635Stark@cluster0-bwssb.gcp.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true  })
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 
+//  mongodb+srv://Aanisha:HelloWorld@cluster0-clksj.azure.mongodb.net/test?retryWrites=true&w=majority
+//  mongodb+srv://AzizStark:148635Stark@cluster0-bwssb.gcp.mongodb.net/azizstark?retryWrites=true&w=majority
 /*mongoose.connect("mongodb://localhost:27017", { useNewUrlParser: true })
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));*/

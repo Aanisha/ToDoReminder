@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'bulma/css/bulma.css';
 
 export default class Home extends Component {
   constructor(props){
@@ -44,7 +45,6 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
-
     );
   }
 }
