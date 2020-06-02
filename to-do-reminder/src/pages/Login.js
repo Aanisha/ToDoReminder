@@ -13,41 +13,41 @@ class Login extends Component {
 
     render() {
         return (
-            <section class="hero is-fullheight">
-                <div class="hero-body">
-                    <div class="container has-text-centered">
-                        <div class="column is-4 is-offset-4">
-                            <div class="box">
+            <section className="hero is-fullheight">
+                <div className="hero-body">
+                    <div className="container has-text-centered">
+                        <div className="column is-4 is-offset-4">
+                            <div className="box">
                                 
-                                <h3 class="title">Login</h3>
-                                <figure class="avatar">
+                                <h3 className="title">Login</h3>
+                                <figure className="avatar">
                                     <img width ='64' src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.freepnglogos.com%2Fuploads%2Ftelegram-logo-15.png&f=1&nofb=1" />
                                 </figure>
                                 <br/>
                                 <form>
                                     
                                     
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="input is-medium" type="email" placeholder="Your Email" autofocus=""/>
+                                    <div className="field">
+                                        <div className="control">
+                                            <input className="input is-medium" type="email" placeholder="Your Email" autofocus=""/>
                                         </div>
                                     </div>
 
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="input is-medium" type="password" placeholder="Your Password"/>
+                                    <div className="field">
+                                        <div className="control">
+                                            <input className="input is-medium" type="password" placeholder="Your Password"/>
                                         </div>
                                     </div>
-                                    <div class="field">
-                                        <label class="checkbox">
+                                    <div className="field">
+                                        <label className="checkbox">
                                         <input type="checkbox"/>
                                         &nbsp;Remember me
                                         </label>
                                     </div>
-                                    <button class="button is-block is-info is-medium is-fullwidth">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                                    <button className="button is-block is-info is-medium is-fullwidth">Login <i className="fa fa-sign-in" aria-hidden="true"></i></button>
                                 </form>
                             </div>
-                            <p class="has-text-grey">
+                            <p className="has-text-grey">
                                 <a href="../">Sign Up</a> &nbsp;-&nbsp;&nbsp;
                                 <a href="../">Forgot Password</a>
                             </p>
