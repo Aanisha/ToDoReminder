@@ -36,7 +36,7 @@ class Home extends React.Component {
     						<div className="settings-cont">
 
     						</div>
-    				</div>
+    				</div>   
     				<div className="rightside">
     						<ul className="infos">
     							<li><i className="sun"></i><span>{this.state.weather}</span></li>
