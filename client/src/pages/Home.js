@@ -44,7 +44,7 @@ class Home extends React.Component {
     							<li><span className="spacer"></span></li>
     							<li><i className="tasks"></i><span>{this.state.noOfCompletedTask} tasks</span></li>
     							<li><i className="bus"></i><span>Departs at {this.state.departTime}</span></li>
-    						</ul>
+    						</ul>  
     					</div>
             </div>
           </div>
