@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
+import axios from "axios";
+import { withRouter } from 'react-router-dom';
 
-export default class Home extends Component {
-  constructor(props){
+class Home extends React.Component {
+  
+  constructor(props) {
     super(props);
     this.state = {
       weather: "Sunny, 30&#176 C",
@@ -14,6 +17,19 @@ export default class Home extends Component {
       username: "Mehul"
     }
   }
+
+  componentDidMount() {
+    //this.props.history.push('/login');
+    axios.get('/api/isLogged')
+     .then(res => {
+
+     }).catch( err => {
+         if(err.response.status === 401){
+          this.props.history.push('/login');
+         } 
+     })   
+  }
+
   render(){
     return(
       <div className="wrapper">
@@ -48,3 +64,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default withRouter(Home);
