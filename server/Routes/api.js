@@ -135,7 +135,7 @@ router.post('/login',(req,res,next) => {
   Users.findOne({ email: email })
     .then(data => {
       if (data !== null){
-        var hashed = crypto.pbkdf2Sync(pass, "samplesalt", 1000, 64, 'sha256').toString('hex');
+        var hashed = crypto.pbkdf2Sync(pass, process.env.SALT , 1000, 64, 'sha256').toString('hex');
         if (hashed === data.password) {
           req.session.isLogged = true;
           res.send("Login Successful");
@@ -168,7 +168,7 @@ router.post('/signup', (req, res, next) => {
   const user = header.slice(0,index)
   const pass = header.slice(index + 1)
 
-  hash = crypto.pbkdf2Sync(pass , "samplesalt", 1000, 64, 'sha256').toString('hex');
+  hash = crypto.pbkdf2Sync(pass , process.env.SALT , 1000, 64, 'sha256').toString('hex');
   console.log(hash, pass, header, req.body)
 
   Users.findOne({ email: req.body.email })

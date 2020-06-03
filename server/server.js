@@ -11,7 +11,7 @@ const app = express();
 const port =  process.env.PORT ||5000;
 
 //connect to the database
-mongoose.connect("mongodb+srv://AzizStark:148635Stark@cluster0-bwssb.gcp.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true  })
+mongoose.connect( process.env.MONGODB , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true  })
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 });
 
 app.use(session({
-  secret: "temporary",
+  secret: process.env.SECRET,
   resave: true,
   saveUninitialized: true,
   maxAge: 5 * 60 * 60 * 1000, // 8 hours
