@@ -8,9 +8,9 @@ Steps for configuring Environment variables:
 1. Create a ".env" file in server folder
 2. Create the following variables in file and save
 
-    <code>SECRET = "Any random hash" <br/>
-     MONGODB = "your mongodb connection url" <br/>
-     SALT = "Any random hash" </code>
+    <code>SECRET = "Any random hash"  </code><br/>
+    <code>MONGODB = "your mongodb connection url"<code><br/>
+    <code>SALT = "Any random hash" </code>
 
 <hr/>
 
