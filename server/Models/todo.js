@@ -3,9 +3,29 @@ const Schema = mongoose.Schema;
 
 //create schema for todo
 const TodoSchema = new Schema({
-  action: {
+  username: {
     type: String,
-    required: [true, 'The todo text field is required']
+    unique: true,
+    required: true
+  },
+  data: {
+    type: Array,
+    value:
+    {
+      todo: {
+        type: String,
+        required: true
+      },
+      label: {
+        type: String,
+      },
+      status: {
+        'type': String,
+      },
+      due: {
+        type: Date
+      }
+    }
   }
 })
 

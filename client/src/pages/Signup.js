@@ -41,8 +41,12 @@ class Signup extends Component {
                 }
             })
             .catch(err => {
-                if (err.response.status === 309) {
+                if (err.response.status === 309 && err.response.data.email === this.state.logindata['user_email']) {
+                    console.log()
                     window.alert("Account already exists")
+                }
+                else if (err.response.status === 309) {
+                    window.alert("Username taken, please try a different name.")
                 }
             });
         }
@@ -69,25 +73,25 @@ class Signup extends Component {
 
                                     <div className="field">
                                         <div className="control">
-                                            <input className="input is-normal" onChange={this.updateForm} name="user_name" type="text" placeholder="Username" required autoFocus=""/>
+                                            <input className="input is-normal" style={{textTransform: 'lowercase'}} onChange={this.updateForm} name="user_name" type="text" placeholder="Username" required autoFocus=""/>
                                         </div>
                                     </div>
                                     
                                     <div className="field">
                                         <div className="control">
-                                            <input className="input is-normal" onChange={this.updateForm} name="user_email" type="email" placeholder="Your Email" required autoFocus=""/>
+                                            <input className="input is-normal" onChange={this.updateForm} name="user_email" type="email" placeholder="Email" required autoFocus=""/>
                                         </div>
                                     </div>
 
                                     <div className="field">
                                         <div className="control">
-                                            <input className="input is-normal" onChange={this.updateForm} name="user_password" type="password" required placeholder="Your Password"/>
+                                            <input className="input is-normal" onChange={this.updateForm} name="user_password" type="password" required placeholder="Password"/>
                                         </div>
                                     </div>
 
                                     <div className="field">
                                         <div className="control">
-                                            <input className="input is-normal" onChange={this.updateForm} name="cpassword" type="password" required placeholder="Confirm Password"/>
+                                            <input className="input is-normal" onChange={this.updateForm} name="cpassword" type="password" required placeholder="Confirm password"/>
                                         </div>
                                     </div>
 
