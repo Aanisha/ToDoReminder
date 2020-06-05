@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bulma/css/bulma.css';
 import axios from "axios";
 
 class Home extends React.Component {
