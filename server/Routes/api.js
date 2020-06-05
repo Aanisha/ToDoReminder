@@ -124,9 +124,9 @@ router.get('/gettodos', (req, res, requireAuth) => {
     .then( data => { res.send(data.data) })
 })
 
-//updates a todo by id
+//updates a todo by  id
 router.put('/updatetodo', (req, res, next) => {
-  console.log(req.body)
+  console.log(req.body)    
   Todo.findOneAndUpdate({ "username": "aziz" }, {
     "data.$[element]":
     {
