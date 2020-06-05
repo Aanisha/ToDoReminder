@@ -61,13 +61,13 @@ class Login extends Component {
                                 <form onSubmit={this.login}>                 
                                     <div className="field">
                                         <div className="control">
-                                            <input className="input is-normal" type="email" required onChange={this.updateForm} name="user_email" placeholder="Your Email" autoFocus=""/>
+                                            <input className="input is-normal" type="text" required onChange={this.updateForm} name="user_email" placeholder="Username or email" autoFocus=""/>
                                         </div>
                                     </div>
 
                                     <div className="field">
                                         <div className="control">
-                                            <input className="input is-normal" type="password" required onChange={this.updateForm} name="user_password" placeholder="Your Password"/>
+                                            <input className="input is-normal" type="password" required onChange={this.updateForm} name="user_password" placeholder="Password"/>
                                         </div>
                                     </div>
 

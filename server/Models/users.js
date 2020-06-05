@@ -4,16 +4,21 @@ const Schema = mongoose.Schema;
 //create schema for todo
 const LoginSchema = new Schema({
   userName:{
-  	type:String,
+    type: String,
+    required: true,
     required: [true, 'Enter UserName']
     },
   email:{
-    type:String,
+    type: String,
     required: [true, 'Enter UserName']
    },
   password:{
     type:String,
     required:[true,'Enter password']
+  },
+  pepper: {
+    type: String,
+    required: [true, 'Pepper required']
   }
 })
 
