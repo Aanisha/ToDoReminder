@@ -37,8 +37,9 @@ router.post('/login', (req, res, next) => {
         var hashed = crypto.pbkdf2Sync(pass, process.env.SALT + data.pepper, 1000, 64, 'sha256').toString('hex');
         if (hashed === data.password) {
           req.session.isLogged = true;
+          req.session.user = data.userName
           res.send("Login Successful");
-          console.log(req.session)
+          console.log(req.session.user)
           //authenticated 
         }
         else {
@@ -81,6 +82,7 @@ router.post('/signup', (req, res, next) => {
         })
           .then(data => {
             req.session.isLogged = true;
+            req.session.user = user
             res.json(data)
           })
           .catch(err => console.log(err))
@@ -100,7 +102,8 @@ router.post('/signup', (req, res, next) => {
 
 //creates a todo 
 router.post('/addtodo', (req, res, next) => {
-  Todo.findOneAndUpdate({ "username": req.body.user }, {
+  console.log(req.body)
+  Todo.findOneAndUpdate({ "username": req.session.user }, {
     $push: {
       "data": [
         {
@@ -116,40 +119,38 @@ router.post('/addtodo', (req, res, next) => {
 })
 
 //get all todos of particular user
-router.get('/gettodos', (req, res, next) => {
-  Todo.findOne({ "username": req.body.user })
-    .then( data => { res.send(data) })
+router.get('/gettodos', (req, res, requireAuth) => {
+  Todo.findOne({ "username": req.session.user })
+    .then( data => { res.send(data.data) })
 })
 
 //updates a todo by id
 router.put('/updatetodo', (req, res, next) => {
-  Todo.findOneAndUpdate({ "username": req.body.user }, {
+  console.log(req.body)
+  Todo.findOneAndUpdate({ "username": "aziz" }, {
     "data.$[element]":
     {
-      "_id": ObjectID(req.body.id),
+      "_id": ObjectID(req.body._id),
       "todo": req.body.todo,
       "label": req.body.label,
       "status": req.body.status,
       "due": req.body.due
     }
-  }, { arrayFilters: [{ "element._id": ObjectID(req.body.id) }] })
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
+  }, { arrayFilters: [{ "element._id": ObjectID(req.body._id) }] })
+    .then(data => res.status(200).json({ message: "updated" } ))
+    .catch(err => res.status(403).json({ message: "update failed" } ))
 })
 
 //deletes a (todo)s by the given object (ID)s
 router.delete('/deletetodo', (req, res, next) => {
-  Todo.findOneAndUpdate({ "username": req.body.user }, {
+  Todo.findOneAndUpdate({ "username": req.session.user }, {
     $pull: {
       "data": {
         _id: { $in: (req.body.ids).map(id => { return ObjectID(id) }) }
       }
     }
-  }).then(data => console.log(data))
-    .catch(err => console.log(err))
+  }).then(data => res.status(200).json({ message: "deleted" } ))
+    .catch( err => res.status(403).json({ message: "delete failed"}))
 })
-
-
-
 
 module.exports = router;
