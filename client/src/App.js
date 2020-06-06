@@ -18,9 +18,6 @@ class App extends React.Component {
 
   fetchTodos = () => {
     axios.get('/api/gettodos', {
-      params: {
-        user: "Sample2"
-      }
     })
       .then(res => {
         if (res.data) {
