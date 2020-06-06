@@ -2,7 +2,7 @@ import React from 'react';
 import lstyles from '../../localstyles/listtodo.module.css'
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faTimesCircle, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { faCircle as farCircle } from '@fortawesome/free-regular-svg-icons'
 import EditTodo from './EditTodo';
 
@@ -106,18 +106,18 @@ class ListTodo extends React.Component {
               (
                 todos.map((todo, index) => {
                   return (
-                    <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
+                    <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: 8 }} >
                       
                       <div style={{display: 'flex', alignItems: 'center'}}>
                         <FontAwesomeIcon
-                          style={todo.status === 'Completed' ? { color: 'green' } : (todo.status === 'expired' ? { color: 'red' } : { color: 'blue' })}
+                          style={todo.status === 'Completed' ? { color: '#4ed04e' } : (todo.status === 'expired' ? { color: 'red' } : { color: '#cd5c5c' })}
                           onClick={() => this.changeStatus(index)}
-                          icon={todo.status === 'Completed' ? faCheckCircle : (todo.status === 'expired' ? faTimesCircle : farCircle)} size="1x"
+                          icon={todo.status === 'Completed' ? faCheckCircle : (todo.status === 'expired' ? faTimesCircle : farCircle)} size="lg"
                         />
-                        &nbsp;
+                        &nbsp;&nbsp;
                         <div className="display" style={{display: 'flex'}}>
                           {
-                            this.state.isedit !== index ? <h3> {todo.todo} </h3> : <input className="input is-small" onChange={(e) => {this.updateTodo(e.target.value, index)}} type="text" value = {todo.todo}/>
+                            this.state.isedit !== index ? <h3 className="subtitle is-5" style={{margin: 0}}> {todo.todo} </h3> : <input style={{width: 'auto'}} className="input is-small" onChange={(e) => {this.updateTodo(e.target.value, index)}} type="text" value = {todo.todo}/>
                           }
                           <h3> - {todo.label} </h3> 
                         </div>
@@ -125,7 +125,9 @@ class ListTodo extends React.Component {
 
                       <div className="operations">
                         {
-                          this.state.isedit === index ? <input onClick={() => { this.saveTodo(index) }} type="button" value="Save" /> : <EditTodo deleteIt={this.deleteTodo} editIt={this.editTodo} index={index} />
+                          this.state.isedit === index ? <FontAwesomeIcon onClick={() => { this.saveTodo(index) }} icon={faCheck} size="lg" />
+                          :
+                          <EditTodo deleteIt={this.deleteTodo} editIt={this.editTodo} index={index} />
                         }
                       </div>
                     </div>
@@ -134,7 +136,7 @@ class ListTodo extends React.Component {
               )
               :
               (
-                <li>No todo(s) left</li>
+                <h3>There are no todo(s). Create a new todo</h3>
               )
           }
         </div>

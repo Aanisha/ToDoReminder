@@ -26,7 +26,8 @@ class EditTodo extends React.Component {
         <div className={`dropdown ${this.state.display}`}>
             <div className="dropdown-trigger">
                 <FontAwesomeIcon
-                    icon={faPenSquare} size="1x"
+                    icon={faPenSquare} size="lg" 
+                    style={{color: 'rgb(165, 163, 175)'}}
                     onClick = {this.changeDisplay}
                 />
             </div>
