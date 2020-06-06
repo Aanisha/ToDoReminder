@@ -1,0 +1,11 @@
+.clickicons, .clickiconw{
+    color: rgb(165, 163, 175);
+}
+
+.clickiconw:hover{
+    color: rgb(240, 98, 88);
+}
+
+.clickicons:hover{
+    color: #1d8bd4;
+}

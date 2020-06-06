@@ -6,7 +6,7 @@ class InputTodo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: { todo: "", label: "new", status: "pending", due: "" }
+      data: { todo: "", label: "New", status: "Active", due: "" }
     }
   }
 

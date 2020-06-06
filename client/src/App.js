@@ -45,7 +45,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">  
-        <div style={{width: '50%', backgroundColor: 'white', padding: 16, borderRadius: 6}}>
+        <div style={{width: '70%', backgroundColor: 'white', padding: 16, borderRadius: 6}}>
           <InputTodo refresh={this.fetchTodos} />
           <br />
           <ListTodo todoData={this.state.todoData} refresh={this.fetchTodos} />
