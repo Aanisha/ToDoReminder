@@ -22,16 +22,16 @@ class InputTodo extends React.Component {
     axios.post('/api/addtodo', this.state.data)
       .then(res => {
         this.props.refresh()
-        console.log(res)
       })
       .catch(err => console.log(err))
   }
 
   render() {
     return (
-      <div className="todo-list">
-        <input type="text" onChange={(e) => this.updateText(e.target.value)} value={this.state.data.todo} placeholder="Enter todo" />
-        <input onClick={this.createTodo} type="button" value="Add" />
+      <div className="todo-list" style={{display: 'flex'}}>
+        <input className="input is-small" type="text" onChange={(e) => this.updateText(e.target.value)} value={this.state.data.todo} placeholder="Enter todo" />
+        &nbsp;
+        <input className="button is-block is-info is-small" onClick={this.createTodo} type="button" value="Add" />
       </div>
     )
   }

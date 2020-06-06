@@ -101,7 +101,7 @@ router.post('/signup', (req, res, next) => {
 
 
 //creates a todo 
-router.post('/addtodo', (req, res, next) => {
+router.post('/addtodo', requireAuth, (req, res, next) => {
   console.log(req.body)
   Todo.findOneAndUpdate({ "username": req.session.user }, {
     $push: {
@@ -119,13 +119,13 @@ router.post('/addtodo', (req, res, next) => {
 })
 
 //get all todos of particular user
-router.get('/gettodos', (req, res, requireAuth) => {
+router.get('/gettodos', requireAuth, (req, res, next) => {
   Todo.findOne({ "username": req.session.user })
     .then( data => { res.send(data.data) })
 })
 
 //updates a todo by  id
-router.put('/updatetodo', (req, res, next) => {
+router.put('/updatetodo', requireAuth, (req, res, next) => {
   console.log(req.body)    
   Todo.findOneAndUpdate({ "username": "aziz" }, {
     "data.$[element]":
@@ -142,7 +142,7 @@ router.put('/updatetodo', (req, res, next) => {
 })
 
 //deletes a (todo)s by the given object (ID)s
-router.delete('/deletetodo', (req, res, next) => {
+router.delete('/deletetodo', requireAuth, (req, res, next) => {
   Todo.findOneAndUpdate({ "username": req.session.user }, {
     $pull: {
       "data": {
