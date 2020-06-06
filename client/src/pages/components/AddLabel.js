@@ -33,16 +33,19 @@ class AddLabel extends React.Component {
                     <a href="#" className="dropdown-item" onClick = {() => {this.props.labelIt(this.props.index, 'Important') || this.setState({display: false}) }} >
                         Important
                     </a>
-                    <a href="#" className="dropdown-item" onClick = {() => {this.props.labelIt(this.props.index, 'Errand') || this.setState({display: false})}}>
-                        Errand
+                    <a href="#" className="dropdown-item" onClick = {() => {this.props.labelIt(this.props.index, 'Personal') || this.setState({display: false})}}>
+                        Personal
                     </a>
-                    <a href="#" className="dropdown-item" onClick = {() => {this.props.labelIt(this.props.index, 'Home') || this.setState({display: false})}}>
-                        Home
+                    <a href="#" className="dropdown-item" onClick = {() => {this.props.labelIt(this.props.index, 'Work') || this.setState({display: false})}}>
+                        Work
+                    </a> 
+                    <a href="#" className="dropdown-item" onClick = {() => {this.props.labelIt(this.props.index, 'Shopping') || this.setState({display: false})}}>
+                        Shopping
                     </a> 
                     <div className="dropdown-item" style={{ display: 'flex', alignItems: 'center' }}>
                         <input className="input is-small" onChange={(e) => {this.setState({ text: e.target.value })}} placeholder="Enter label" type="text" />
                         &nbsp;&nbsp;
-                        <FontAwesomeIcon onClick={() => { this.props.labelIt(this.props.index, this.state.text) || this.setState({display: false}) }} className={lstyles.clickicons} icon = {faCheckSquare} size='lg' />
+                        <FontAwesomeIcon onClick={() => { this.props.labelIt(this.props.index, this.state.text) || this.setState({display: false}) }} className={lstyles.clickicons} icon = {faCheckSquare} style={{fontSize: '1.9rem'}} />
                     </div>
                 </div>
             </div>
