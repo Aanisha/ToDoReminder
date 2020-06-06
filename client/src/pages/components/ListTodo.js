@@ -1,7 +1,10 @@
 import React from 'react';
 import lstyles from '../../localstyles/listtodo.module.css'
 import axios from 'axios';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle as farCircle } from '@fortawesome/free-regular-svg-icons'
+import EditTodo from './EditTodo';
 
 class ListTodo extends React.Component {
 
@@ -27,7 +30,6 @@ class ListTodo extends React.Component {
 
   //updates the todo in state
   updateTodo = (text, index) => {
-    console.log("update")
     let data = this.state.data
     data[index].todo = text
     this.setState({
@@ -44,7 +46,6 @@ class ListTodo extends React.Component {
 	      "ids" :  [this.state.data[index]._id]
       }
     }).then(res => {
-      console.log(res)
       this.props.refresh()
     }).catch(err => console.log(err))
   }
@@ -52,7 +53,6 @@ class ListTodo extends React.Component {
   //updates the todo in database
   saveTodo = (index) => {
     axios.put('/api/updatetodo', this.state.data[index]).then( res => {
-      console.log(res)
       this.setState({
         isedit: -1
       })
@@ -62,33 +62,70 @@ class ListTodo extends React.Component {
     })
   }
 
+  changeStatus = (index) => {
+    let data = this.state.data
+    let status = data[index].status
+    if (status === 'Active') {
+      data[index].status = 'Completed'
+      this.setState({ data: data })
+      axios.put('/api/updatetodo', this.state.data[index]).then( res => {
+        this.props.refresh()
+      }).catch(err => {
+        window.alert("Error occured")
+      })
+    }
+    else if (this.status === 'Expired') {
+      data[index].status = 'Active'
+      this.setState({ data: data })
+      axios.put('/api/updatetodo', this.state.data[index]).then( res => {
+        this.props.refresh()
+      }).catch(err => {
+        window.alert("Error occured")
+      })
+    }
+    else {
+      data[index].status = 'Active'
+      this.setState({ data: data })
+      axios.put('/api/updatetodo', this.state.data[index]).then( res => {
+        this.props.refresh()
+      }).catch(err => {
+        window.alert("Error occured")
+      })
+    }
+  }
+
   render() {
     let todos = this.state.data
     return (
       <div className="todo-list">
-        <h1> Todo List </h1>
-        <ul>
+        <h1 className="title"> Todo List </h1>
+        <div>
           {
             todos &&
               todos.length > 0 ?
               (
                 todos.map((todo, index) => {
                   return (
-                    <div key={index} style={{display: 'flex'}} >
-                      <div className="display" style={{display: 'flex'}}>
-                        {
-                          this.state.isedit !== index ? <h3> {todo.todo} </h3> : <input onChange={(e) => {this.updateTodo(e.target.value, index)}} type="text" value = {todo.todo}/>
-                        }
-                        <h3> - {todo.status} </h3> 
-                        <h3> - {todo.label} </h3> 
+                    <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
+                      
+                      <div style={{display: 'flex', alignItems: 'center'}}>
+                        <FontAwesomeIcon
+                          style={todo.status === 'Completed' ? { color: 'green' } : (todo.status === 'expired' ? { color: 'red' } : { color: 'blue' })}
+                          onClick={() => this.changeStatus(index)}
+                          icon={todo.status === 'Completed' ? faCheckCircle : (todo.status === 'expired' ? faTimesCircle : farCircle)} size="1x"
+                        />
+                        &nbsp;
+                        <div className="display" style={{display: 'flex'}}>
+                          {
+                            this.state.isedit !== index ? <h3> {todo.todo} </h3> : <input className="input is-small" onChange={(e) => {this.updateTodo(e.target.value, index)}} type="text" value = {todo.todo}/>
+                          }
+                          <h3> - {todo.label} </h3> 
+                        </div>
                       </div>
 
                       <div className="operations">
-                        <input type="checkbox"/>
-                        <input onClick={() => { this.deleteTodo(index) }} type="button" value="delete"/>
                         {
-                          this.state.isedit !== index ? <input onClick={() => { this.editTodo(index) }} type="button" value="update" />
-                          :<input onClick={() => { this.saveTodo(index) }} type="button" value="Save" />
+                          this.state.isedit === index ? <input onClick={() => { this.saveTodo(index) }} type="button" value="Save" /> : <EditTodo deleteIt={this.deleteTodo} editIt={this.editTodo} index={index} />
                         }
                       </div>
                     </div>
@@ -100,7 +137,7 @@ class ListTodo extends React.Component {
                 <li>No todo(s) left</li>
               )
           }
-        </ul>
+        </div>
       </div>
     )
   }

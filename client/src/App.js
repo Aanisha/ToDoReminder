@@ -25,7 +25,6 @@ class App extends React.Component {
       .then(res => {
         if (res.data) {
           this.setState({ todoData: res.data })
-          console.log(res.data)
         }
         else {
           console.log("Error from server", res)
@@ -48,10 +47,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        
-        <InputTodo refresh = {this.fetchTodos} />
-        <ListTodo todoData={this.state.todoData} refresh = {this.fetchTodos} />
+      <div className="App">  
+        <div style={{width: '50%', backgroundColor: 'white', padding: 16, borderRadius: 6}}>
+          <InputTodo refresh={this.fetchTodos} />
+          <br />
+          <ListTodo todoData={this.state.todoData} refresh={this.fetchTodos} />
+        </div>
       </div>
     );
   }
