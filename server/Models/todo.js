@@ -20,7 +20,7 @@ const TodoSchema = new Schema({
         type: String,
       },
       status: {
-        'type': String,
+        type: String,
       },
       due: {
         type: Date

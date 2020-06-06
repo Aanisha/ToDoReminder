@@ -39,7 +39,6 @@ router.post('/login', (req, res, next) => {
           req.session.isLogged = true;
           req.session.user = data.userName
           res.send("Login Successful");
-          console.log(req.session.user)
           //authenticated 
         }
         else {
@@ -102,7 +101,7 @@ router.post('/signup', (req, res, next) => {
 
 //creates a todo 
 router.post('/addtodo', requireAuth, (req, res, next) => {
-  console.log(req.body)
+  let date = new Date()
   Todo.findOneAndUpdate({ "username": req.session.user }, {
     $push: {
       "data": [
@@ -111,7 +110,7 @@ router.post('/addtodo', requireAuth, (req, res, next) => {
           "todo": req.body.todo,
           "label": req.body.label,
           "status": req.body.status,
-          "due": req.body.due
+          "due": date
         }]
     }
   }, { upsert: true }).then( data => res.status(201).json({ message : "created"}))
@@ -125,7 +124,9 @@ router.get('/gettodos', requireAuth, (req, res, next) => {
 })
 
 //updates a todo by  id
-router.put('/updatetodo', requireAuth, (req, res, next) => {   
+router.put('/updatetodo', requireAuth, (req, res, next) => {
+  var date = req.body.due;
+  var dateObject = new Date(date);
   Todo.findOneAndUpdate({ "username": req.session.user }, {
     "data.$[element]":
     {
@@ -133,7 +134,7 @@ router.put('/updatetodo', requireAuth, (req, res, next) => {
       "todo": req.body.todo,
       "label": req.body.label,
       "status": req.body.status,
-      "due": req.body.due
+      "due": dateObject
     }
   }, { arrayFilters: [{ "element._id": ObjectID(req.body._id) }] })
     .then(data => res.status(200).json({ message: "updated" } ))

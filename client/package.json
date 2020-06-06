@@ -14,8 +14,12 @@
     "bulma": "^0.8.2",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-addons-update": "^15.6.2",
+    "react-datepicker": "^3.0.0",
     "react-dom": "^16.13.1",
     "react-fontawesome": "^1.7.1",
+    "react-picky-date-time": "^1.6.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
