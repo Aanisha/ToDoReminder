@@ -6,6 +6,10 @@
     color: rgb(240, 98, 88);
 }
 
+.clickiconw:active{
+    color: rgb(250, 17, 0);
+}
+
 .clickicons:hover{
     color: #1d8bd4;
 }

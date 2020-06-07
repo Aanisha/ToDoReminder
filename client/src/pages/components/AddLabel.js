@@ -25,8 +25,8 @@ class AddLabel extends React.Component {
   render() {
     return (
         <div className={`dropdown ${this.state.display}`}>
-            <div className="dropdown-trigger">
-                <span onClick = {this.changeDisplay} style={{cursor: 'pointer'}} className="tag is-info is-light">{this.props.label}</span>
+            <div className="dropdown-trigger" style={{display: 'flex', alignItems: 'center'}}>
+                <span title="Edit label" onClick={this.changeDisplay} style={{ cursor: 'pointer' }} className={`tag is-info is-light ${this.props.index == -1 ? `is-large` : `is-normal`}`}>{this.props.label}</span>
             </div>
             <div className="dropdown-menu" id="dropdown-menu3" role="menu" onMouseLeave = {() => this.setState({display: false})}>
                 <div className="dropdown-content">
@@ -43,7 +43,7 @@ class AddLabel extends React.Component {
                         Shopping
                     </a> 
                     <div className="dropdown-item" style={{ display: 'flex', alignItems: 'center' }}>
-                        <input className="input is-small" onChange={(e) => {this.setState({ text: e.target.value })}} placeholder="Enter label" type="text" />
+                        <input className="input is-small" style={{width: 124}} onChange={(e) => {this.setState({ text: e.target.value })}} placeholder="Enter label" type="text" />
                         &nbsp;&nbsp;
                         <FontAwesomeIcon onClick={() => { this.props.labelIt(this.props.index, this.state.text) || this.setState({display: false}) }} className={lstyles.clickicons} icon = {faCheckSquare} style={{fontSize: '1.9rem'}} />
                     </div>

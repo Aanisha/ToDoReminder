@@ -100,8 +100,7 @@ class Signup extends Component {
                             </div>
 
                             <p className="has-text-white">
-                                <a href="/login">Login</a> &nbsp;-&nbsp;&nbsp;
-                                <a href="../">Forgot Password</a>
+                                <a href="/login" style={{ color: "white" }}>Login</a>
                             </p>
                         </div>
                     </div>
