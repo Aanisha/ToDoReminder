@@ -16,7 +16,7 @@ class ListTodo extends React.Component {
       data: [],
       isedit: -1,
       dateEdit: -1,
-      date: new Date()
+      date: ""
     }
   }
 
