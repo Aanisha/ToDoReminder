@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ToDoReminder
+For Stack Hack 1.0 :: Team Coderantine
 
-## Available Scripts
+<hr/>
 
-In the project directory, you can run:
+Steps for configuring Environment variables:
 
-### `npm start`
+1. Create a ".env" file in server folder
+2. Create the following variables in file and save
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    <code>SECRET = "Any random hash"  
+    MONGODB = "your mongodb connection url"
+    SALT = "Any random hash" </code>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<hr/>
 
-### `npm test`
+## TechStack used : MERN stack.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features Implemented
 
-### `npm run build`
+* ToDo List Website, which enables users to add tasks, due date-time, and set labels to the task as 'Personal','Work','Important' and 'Others'.
+* Enables user to search and filter todos based on labels, and date-time.
+* User can edit and delete todos,as per requirement.
+* Is OAuth enabled with profile based signin and login.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## To run and deploy
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* Clone the repository, and unzip it locally.
+#### For Frontend
+* Open Node cmd, and enter the client folder.
+* Use <code>npm install</code>,to install the frontend dependencies locally.
+* Type <code>npm start</code> to run the fontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### For Backend
 
-### `npm run eject`
+* Open Node cmd, and enter the server folder.
+* Use <code>npm install</code>,to install the frontend dependencies locally.
+* Type <code>node server.js</code> to run the backend
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Using the app
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* The first screen will prompt user to create a profile, or login if they have existing profile.
+* The user is directed to their profiles, where they can add todos.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Challenge link : https://www.hackerearth.com/challenges/hackathon/stackhack-v1/?utm_campaign=hackathons&utm_medium=email&utm_source=team-invite

@@ -15,13 +15,6 @@ mongoose.connect( process.env.MONGODB , { useNewUrlParser: true, useUnifiedTopol
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 
-//  mongodb+srv://Aanisha:HelloWorld@cluster0-clksj.azure.mongodb.net/test?retryWrites=true&w=majority
-//  mongodb+srv://AzizStark:148635Stark@cluster0-bwssb.gcp.mongodb.net/azizstark?retryWrites=true&w=majority
-/*mongoose.connect("mongodb://localhost:27017", { useNewUrlParser: true })
-  .then(() => console.log(`Database connected successfully`))
-  .catch(err => console.log(err));*/
-  
-
 //since mongoose promise is depreciated, we overide it with node's promise
 mongoose.Promise = global.Promise;
 
