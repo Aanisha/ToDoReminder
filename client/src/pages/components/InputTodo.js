@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import istyles from '../../localstyles/input.module.css'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AddLabel from './AddLabel';
@@ -53,7 +54,7 @@ class InputTodo extends React.Component {
 
   render() {
     return (
-      <form className="todo-list" style={{display: 'flex'}}>
+      <form className={`todo-list ${istyles.addtodo}`} style={{display: 'flex'}}>
         <input className="input is-normal" type="text" onChange={(e) => this.updateText(e.target.value)} value={this.state.data.todo} placeholder="Enter todo" />
         &nbsp;
         <AddLabel label={this.state.data.label} labelIt={this.editLabel} index={-1} />
@@ -67,7 +68,7 @@ class InputTodo extends React.Component {
           title="Set task due"
           showTimeInput
         /> &nbsp;
-        <input className="button is-block is-info is-normal" onClick={this.createTodo} type="button" value="Add Todo" />
+        <input className={`button is-block is-info is-normal ${istyles.butt}`} onClick={this.createTodo} type="button" value="Add Todo" />
       </form>
     )
   }

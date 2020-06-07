@@ -55,7 +55,7 @@ class Login extends Component {
                                 
                                 <h3 className="title">Login</h3>
                                 <figure className="avatar">
-                                    <img width='64' alt="logo" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.freepnglogos.com%2Fuploads%2Ftelegram-logo-15.png&f=1&nofb=1" />
+                                    <img width='164' alt="logo" src="https://res.cloudinary.com/azizcloud/image/upload/v1591544372/jpcta3ch68kuid3wiwit.png" />
                                 </figure>
                                 <br/>
                                 <form onSubmit={this.login}>                 
