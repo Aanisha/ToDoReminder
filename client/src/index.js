@@ -10,7 +10,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 const routing = (
   <Router>
-    <div>
+    <div style={{minHeight: '100vh'}}>
       <Route exact path="/" component={App} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />

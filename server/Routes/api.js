@@ -101,7 +101,6 @@ router.post('/signup', (req, res, next) => {
 
 //creates a todo 
 router.post('/addtodo', requireAuth, (req, res, next) => {
-  let date = new Date()
   Todo.findOneAndUpdate({ "username": req.session.user }, {
     $push: {
       "data": [
@@ -151,6 +150,13 @@ router.delete('/deletetodo', requireAuth, (req, res, next) => {
     }
   }).then(data => res.status(200).json({ message: "deleted" } ))
     .catch( err => res.status(403).json({ message: "delete failed"}))
+})
+
+//deletes a (todo)s by the given object (ID)s
+router.get('/search', (req, res, next) => {
+  Todo.find( {  $text: { $search: "java coffee shop" } } )
+  .then(data => console.log(data))
+  .catch( err => console.log(err))
 })
 
 module.exports = router;
