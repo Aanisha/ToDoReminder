@@ -110,7 +110,7 @@ router.post('/addtodo', requireAuth, (req, res, next) => {
           "todo": req.body.todo,
           "label": req.body.label,
           "status": req.body.status,
-          "due": date
+          "due": req.body.due
         }]
     }
   }, { upsert: true }).then( data => res.status(201).json({ message : "created"}))
