@@ -44,4 +44,4 @@ Steps for configuring Environment variables:
 
 Challenge link : https://www.hackerearth.com/challenges/hackathon/stackhack-v1/?utm_campaign=hackathons&utm_medium=email&utm_source=team-invite
 
-See the live hosted app here: https://todoappama.herokuapp.com
+See the live hosted app here: https://todostackhack.herokuapp.com
