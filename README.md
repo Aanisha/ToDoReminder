@@ -3,7 +3,7 @@ For Stack Hack 1.0 :: Team Coderantine
 
 <hr/>
 
-#Preview
+Preview
 
 <img src="https://res.cloudinary.com/azizcloud/image/upload/v1591607769/o3cgkvl7dmtlmsdw2ts6.png" />
 
