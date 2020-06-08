@@ -1,4 +1,4 @@
-# ToDoReminder
+# Do it! - A smart To-do web-app
 For Stack Hack 1.0 :: Team Coderantine
 
 <hr/>
