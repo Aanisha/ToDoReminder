@@ -3,6 +3,10 @@ For Stack Hack 1.0 :: Team Coderantine
 
 <hr/>
 
+#Preview
+
+<img src="https://res.cloudinary.com/azizcloud/image/upload/v1591607769/o3cgkvl7dmtlmsdw2ts6.png" />
+
 Steps for configuring Environment variables:
 
 1. Create a ".env" file in server folder
